@@ -18,7 +18,7 @@
 
 >Note: This version is re-trained. Values differ slightly compared to the paper version due to randomness.
 
->We limit the number of training epoches to 300. However, continuing training will slightly increase the performance.
+>We limit the number of training epochs to 300. However, continuing training will slightly increase the performance.
 
 #### How-To
 
