@@ -41,6 +41,7 @@ python setup.py build develop
 pip install -r requirements.txt
 
 unset INSTALL_DIR
+cd ..
 ```
 
 >`apex` is optional, as Pytorch Lightning uses native Automatic Mixed Precision.
