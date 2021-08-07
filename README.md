@@ -6,7 +6,7 @@ For details please see our [ICCV 2021 paper](#) - **Image Retrieval on Real-life
 
 ![Demo image from CIRR data](demo_imgs/model_arch.png)
 
-If you find this repository useful, we would appreciate it if you give us a star.
+If you find this repository useful, we would appreciate it if you could give us a star.
 
 -----
 >You are currently viewing the [code & model repository](https://github.com/Cuberick-Orion/CIRPLANT). For more information, see our [Project homepage](https://cuberick-orion.github.io/CIRR/).
@@ -43,7 +43,7 @@ To inspect results, we recommend using Tensorboard and load the saved `events.ou
 Pytorch Lightning automatically saves the latest checkpoint `last.ckpt` in the same output directory. Additionally, you can also specify a certain validation score name `--log_by [...]` to monitor, which enables saving of the best checkpoint.
 
 ## Test-split Evaluation
-We do not publish the ground truth for the test split of CIRR. Instead, an evaluation server is hosted [here](https://cirr.cecs.anu.edu.au/), should you prefer to publish results on the test-split.
+We do not publish the ground truth for the test split of CIRR. Instead, we host an [evaluation server](https://cirr.cecs.anu.edu.au/), should you prefer to publish results on the test-split.
 
 To generate a `.json` file and upload to the test server, load a trained checkpoint and enable `--testonly`.
 
