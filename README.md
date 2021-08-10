@@ -2,13 +2,12 @@
 
 This repository contains the code and pre-trained models for **C**omposed **I**mage **R**etrieval using **P**retrained **LAN**guage **T**ransformers (CIRPLANT)
 
-For details please see our [ICCV 2021 paper](#) - **Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models**.
+For details please see our [ICCV 2021 paper](https://arxiv.org/abs/2108.04024) - **Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models**.
 
 ![Demo image from CIRR data](demo_imgs/model_arch.png)
 
 If you find this repository useful, we would appreciate it if you could give us a star.
 
------
 >You are currently viewing the [code & model repository](https://github.com/Cuberick-Orion/CIRPLANT). For more information, see our [Project homepage](https://cuberick-orion.github.io/CIRR/).
 
 
@@ -31,7 +30,7 @@ python trainval_oscar.py --dataset cirr --usefeat nlvr-resnet152_w_empty --max_e
 
 ```
 
-To use pre-trained weights to reproduce results in our [ICCV 2021 paper](#), please see [DOWNLOAD.md](DOWNLOAD.md).
+To use pre-trained weights to reproduce results in our [ICCV 2021 paper](https://arxiv.org/abs/2108.04024), please see [DOWNLOAD.md](DOWNLOAD.md).
 
 ## Developing
 To develop based on our code, we highly recommend first getting familar with Pytorch Lightning.
@@ -57,5 +56,10 @@ A `.json` file will be saved to the output directory. Visit our test server and 
 ## Citation
 Please consider citing this paper if you use the code:
 ```
-# TODO
+@article{liu2021cirr,
+      title={Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models}, 
+      author={Zheyuan Liu and Cristian Rodriguez-Opazo and Damien Teney and Stephen Gould},
+      journal={arXiv preprint arXiv:2108.04024},
+      year={2021},
+}
 ```
