@@ -42,7 +42,7 @@ To inspect results, we recommend using Tensorboard and load the saved `events.ou
 Pytorch Lightning automatically saves the latest checkpoint `last.ckpt` in the same output directory. Additionally, you can also specify a certain validation score name `--log_by [...]` to monitor, which enables saving of the best checkpoint.
 
 ## Test-split Evaluation
-We do not publish the ground truth for the test split of CIRR. Instead, we host an [evaluation server](https://cirr.cecs.anu.edu.au/), should you prefer to publish results on the test-split.
+We do not publish the ground truth for the test split of CIRR. Instead, we host an [evaluation server](http://cirr.cecs.anu.edu.au/), should you prefer to publish results on the test-split.
 
 To generate a `.json` file and upload to the test server, load a trained checkpoint and enable `--testonly`.
 
