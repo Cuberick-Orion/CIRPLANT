@@ -343,26 +343,41 @@ class OSCAR_CIRPLANT(pl.LightningModule):
   def test_step(self, *args, **kwargs):
     return self.validation_step(*args, **kwargs)
 
-  def test_epoch_end(self, step_outputs: list):
-    assert self.args.accelerator is None, NotImplementedError('Not supported for multi-GPU')
-    _, _, nn_result = self.eval_test_prepare_step_CIRR(step_outputs, is_test_split=True)
-    
+  def generate_test_json(self, nn_result, all_set_member_idx, DSET, TOP_HOW_MANY, METRIC_NAME):
     import json
-    test_dataset = self.trainer.test_dataloaders[0].dataset
-    DSET_VERSION = test_dataset.version
-    
-    t_json = {'version':DSET_VERSION}
-    for n_, t_ in zip(nn_result, test_dataset.test_queries):
-      pair_id_ = str(t_['pairid'])
-      nn_ranks_asin_ = [test_dataset.id2asin[nn_] for nn_ in n_]
-      t_json[pair_id_] = nn_ranks_asin_[:50]
+    DSET_VERSION = DSET.version
+
+    t_json = {'version':DSET_VERSION, 'metric': METRIC_NAME}
+    if METRIC_NAME == 'recall':
+      for n_, t_ in zip(nn_result, DSET.test_queries):
+        pair_id_ = str(t_['pairid'])
+        nn_ranks_asin_ = [DSET.id2asin[nn_] for nn_ in n_]
+        t_json[pair_id_] = nn_ranks_asin_[:TOP_HOW_MANY]
+    elif METRIC_NAME == 'recall_subset':
+      for n_, a_, t_ in zip(nn_result, all_set_member_idx, DSET.test_queries):
+        pair_id_ = str(t_['pairid'])
+        nn_ranks_asin_ = [DSET.id2asin[nn_] for nn_ in n_ if nn_ in a_]
+        t_json[pair_id_] = nn_ranks_asin_[:TOP_HOW_MANY]
 
     '''Directory for saving:
-    e.g., saved_models/cirr_rc2/my_computer/version_0/checkpoints/test1_pred_ranks.json
+    e.g., saved_models/cirr_rc2/my_computer/version_0/checkpoints/test1_pred_ranks_recall.json
     '''
     ckp_dir = self.trainer.default_root_dir
     if not os.path.exists(ckp_dir):
       os.mkdir(ckp_dir)
-    t_json_path = os.path.join(ckp_dir, 'test1_pred_ranks.json')
+    
+    t_json_path = os.path.join(ckp_dir, 'test1_pred_ranks_'+METRIC_NAME+'.json')
     json.dump(t_json, open(t_json_path,'w'))
     print('\n|> Prediction file saved to %s' % t_json_path)
+    return
+
+  def test_epoch_end(self, step_outputs: list):
+    assert self.args.accelerator is None, NotImplementedError('Not supported for multi-GPU')
+    _, all_set_member_idx, nn_result = self.eval_test_prepare_step_CIRR(step_outputs, is_test_split=True)
+    
+    test_dataset = self.trainer.test_dataloaders[0].dataset
+    self.generate_test_json(nn_result, all_set_member_idx, DSET=test_dataset, TOP_HOW_MANY=50, METRIC_NAME='recall')
+    self.generate_test_json(nn_result, all_set_member_idx, DSET=test_dataset, TOP_HOW_MANY=3, METRIC_NAME='recall_subset')
+    
+    
+    
