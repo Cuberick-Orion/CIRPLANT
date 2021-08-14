@@ -44,14 +44,14 @@ Pytorch Lightning automatically saves the latest checkpoint `last.ckpt` in the s
 ## Test-split Evaluation
 We do not publish the ground truth for the test split of CIRR. Instead, we host an [evaluation server](http://cirr.cecs.anu.edu.au/), should you prefer to publish results on the test-split.
 
-To generate a `.json` file and upload to the test server, load a trained checkpoint and enable `--testonly`.
+To generate `.json` files and upload to the test server, load a trained checkpoint and enable `--testonly`.
 
 As an example, compare the following arguments with the training arguments above.
 ```bash
 python trainval_oscar.py --dataset cirr --usefeat nlvr-resnet152_w_empty --max_epochs 300 --model CIRPLANT-img --model_type 'bert' --model_name_or_path data/Oscar_pretrained_models/base-vg-labels/ep_107_1192087 --task_name cirr --gpus 1 --img_feature_dim 2054 --max_img_seq_length 1 --model_type bert --do_lower_case --max_seq_length 40 --learning_rate 1e-05 --loss_type xe --seed 88 --drop_out 0.3 --weight_decay 0.05 --warmup_steps 0 --loss st --batch_size 32 --num_batches 529 --pin_memory --num_workers_per_gpu 0 --comment input_your_comments --output saved_models/cirr_rc2_iccv_release_test --log_by recall_inset_top1_correct_composition --check_val_every_n_epoch 1 --testonly --load_from_checkpoint $CKPT_PATH
 ```
 
-A `.json` file will be saved to the output directory. Visit our test server and upload it to get results.
+**Two `.json` files** will be saved to the output directory, one for Recall validation, the other for Recall_Subset. Visit our test server and upload it to get results.
 
 ## Citation
 Please consider citing this paper if you use the code:
