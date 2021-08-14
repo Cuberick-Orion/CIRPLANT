@@ -9,6 +9,9 @@ new_logs*
 /data
 *.pth
 
+/saved_models
+*json
+
 __pycache__
 /.vscode
 
