@@ -55,11 +55,14 @@ python trainval_oscar.py --dataset cirr --usefeat nlvr-resnet152_w_empty --max_e
 
 ## Citation
 Please consider citing this paper if you use the code:
-```
-@article{liu2021cirr,
-      title={Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models}, 
-      author={Zheyuan Liu and Cristian Rodriguez-Opazo and Damien Teney and Stephen Gould},
-      journal={arXiv preprint arXiv:2108.04024},
-      year={2021},
+```bibtex
+@inproceedings{Liu:ICCV2021,
+  author    = {Zheyuan Liu and
+               Cristian Rodriguez and
+               Damien Teney and
+               Stephen Gould},
+  title     = {Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models},
+  booktitle = {ICCV},
+  year      = {2021}
 }
 ```
