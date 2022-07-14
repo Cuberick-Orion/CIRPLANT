@@ -4,10 +4,12 @@
 - Python >= 3.7
 - Pytorch >= 1.6
 - torchvision >= 0.4.0
-- Pytorch Lightning >= 1.3.1
+- PytorchLightning >= 1.3.1 (**recommended 1.5.1**)
 - cuda >= 10.0
 
->Lower versions are potentially okay, but untested.
+>Newer versions of PytorchLightning might contain API changes that cause errors (thanks [@sgvaze](https://github.com/Cuberick-Orion/CIRPLANT/issues/7#issue-1303964874) for point it out). Though usually they can be resolved quickly by looking at the documentation.
+
+>Lower versions of Python 3.x, Pytorch and CUDA are potentially okay as well, but untested.
 
 ### Step 1: Install OSCAR
 
