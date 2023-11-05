@@ -2,7 +2,7 @@
 
 This repository contains the code and pre-trained models for **C**omposed **I**mage **R**etrieval using **P**retrained **LAN**guage **T**ransformers (CIRPLANT)
 
-For details please see our [ICCV 2021 paper](https://arxiv.org/abs/2108.04024) - **Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models**.
+For details please see our [ICCV 2021 paper](https://openaccess.thecvf.com/content/ICCV2021/html/Liu_Image_Retrieval_on_Real-Life_Images_With_Pre-Trained_Vision-and-Language_Models_ICCV_2021_paper.html) - **Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models**.
 
 ![Demo image from CIRR data](demo_imgs/model_arch.png)
 
@@ -30,7 +30,7 @@ python trainval_oscar.py --dataset cirr --usefeat nlvr-resnet152_w_empty --max_e
 
 ```
 
-To use pre-trained weights to reproduce results in our [ICCV 2021 paper](https://arxiv.org/abs/2108.04024), please see [DOWNLOAD.md](DOWNLOAD.md).
+To use pre-trained weights to reproduce results in our ICCV 2021 paper, please see [DOWNLOAD.md](DOWNLOAD.md).
 
 ## Developing
 To develop based on our code, we highly recommend first getting familar with Pytorch Lightning.
@@ -56,13 +56,12 @@ python trainval_oscar.py --dataset cirr --usefeat nlvr-resnet152_w_empty --max_e
 ## Citation
 Please consider citing this paper if you use the code:
 ```bibtex
-@inproceedings{Liu:ICCV2021,
-  author    = {Zheyuan Liu and
-               Cristian Rodriguez and
-               Damien Teney and
-               Stephen Gould},
-  title     = {Image Retrieval on Real-life Images with Pre-trained Vision-and-Language Models},
-  booktitle = {ICCV},
-  year      = {2021}
+@InProceedings{Liu_2021_ICCV,
+    author    = {Liu, Zheyuan and Rodriguez-Opazo, Cristian and Teney, Damien and Gould, Stephen},
+    title     = {Image Retrieval on Real-Life Images With Pre-Trained Vision-and-Language Models},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2021},
+    pages     = {2125-2134}
 }
 ```
