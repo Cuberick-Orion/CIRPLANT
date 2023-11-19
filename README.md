@@ -6,9 +6,10 @@ For details please see our [ICCV 2021 paper](https://openaccess.thecvf.com/conte
 
 ![Demo image from CIRR data](demo_imgs/model_arch.png)
 
-If you find this repository useful, we would appreciate it if you could give us a star.
-
->You are currently viewing the [code & model repository](https://github.com/Cuberick-Orion/CIRPLANT). For more information, see our [Project homepage](https://cuberick-orion.github.io/CIRR/).
+> [!Tip]
+> You are currently viewing the **Code repository**.
+> 
+> Site navigation > [**Project homepage**](https://cuberick-orion.github.io/CIRR/) | [**Dataset repository**](https://github.com/Cuberick-Orion/CIRR)
 
 
 ## Introduction
