@@ -7,9 +7,10 @@
 - PytorchLightning >= 1.3.1 (**recommended 1.5.1**)
 - cuda >= 10.0
 
->Newer versions of PytorchLightning might contain API changes that cause errors (thanks [@sgvaze](https://github.com/Cuberick-Orion/CIRPLANT/issues/7#issue-1303964874) for point it out). Though usually they can be resolved quickly by looking at the documentation.
-
->Lower versions of Python 3.x, Pytorch and CUDA are potentially okay as well, but untested.
+> [!Important]
+> Newer versions of PytorchLightning might contain API changes that cause errors (thanks [@sgvaze](https://github.com/Cuberick-Orion/CIRPLANT/issues/7#issue-1303964874) for pointing it out). Though usually they can be resolved quickly by looking at the documentation.
+> 
+> Lower versions of Python 3.x, Pytorch and CUDA are potentially okay as well, but untested.
 
 ### Step 1: Install OSCAR
 
@@ -46,9 +47,10 @@ unset INSTALL_DIR
 cd ..
 ```
 
+> [!Tip]
 >`apex` is optional, as Pytorch Lightning uses native Automatic Mixed Precision.
-
->If you encounter warnings on CUDA version when installing `apex`, follow the prompt to comment it out and proceed.
+> 
+> If you encounter warnings on CUDA version when installing `apex`, follow the prompt to comment it out and proceed.
 
 ### Step 2: Setup CIRPLANT
 ```bash
@@ -87,19 +89,21 @@ wget https://biglmdiag.blob.core.windows.net/oscar/pretrained_models/base-vg-lab
 unzip base-vg-labels.zip -d $DATA_DIR
 rm base-vg-labels.zip
 ```
->The unzipped files should look like:
->```
-> data
-> └─── Oscar_pretrained_models
->      └─── base-vg-labels
->           ├── ep_67_588997      
->           │           ...
->           └── ep_107_1192087         
->                       ...
->```
+
+The unzipped files should look like:
+```
+ data
+ └─── Oscar_pretrained_models
+      └─── base-vg-labels
+           ├── ep_67_588997      
+           │           ...
+           └── ep_107_1192087         
+                       ...
+```
 
 ### Step 3.2: Prepare datasets
  - For CIRR, please see our [dataset repository](https://github.com/Cuberick-Orion/CIRR). Download the annotations and image features to `data/cirr`.
  - For other datasets, we recommend following a similar file structure and save to `data/$DATASET_NAME`.
 
->See the CIRR dataset [file structure](https://github.com/Cuberick-Orion/CIRR/blob/main/README.md#dataset-file-structure) for what it should look like.
+> [!Tip]
+> See the CIRR dataset [file structure](https://github.com/Cuberick-Orion/CIRR/blob/main/README.md#dataset-file-structure) for what it should look like.
